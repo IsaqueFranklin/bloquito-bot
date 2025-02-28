@@ -10,6 +10,10 @@ export default function Component() {
   const { data: session, status }: any = useSession()
   const router = useRouter();
 
+  if(session){
+    router.push('http://localhost:3001/dashboard')
+  }
+
   return (
     <div className="items-center my-auto py-32 lg:py-0">
             <div className="flex flex-col my-auto items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

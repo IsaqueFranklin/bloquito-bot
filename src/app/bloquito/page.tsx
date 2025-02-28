@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function BotControl() {
   const [status, setStatus] = useState<string | null>(null);
   const session = useSession()
+  
   const startBot = async () => {
     setStatus("Iniciando...");
     try {
@@ -21,6 +22,10 @@ export default function BotControl() {
   useEffect(() => {
     axios.get("/api/user-session").then(response => {
       console.log("This is the session from the api: ", response.data)
+    })
+
+    axios.get("/api/user-guilds").then(response => {
+      console.log("This is the user guilds from the api: ", response.data)
     })
   }, [])
 
